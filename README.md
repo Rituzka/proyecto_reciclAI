@@ -1,5 +1,5 @@
 # ♻️ proyecto_reciclAI  
-Clasificación de residuos (Amarillo, Verde y Azul) mediante **Deep Learning** usando **EfficientNetB0**, **TensorFlow** y conversión del modelo en **TensorFlow Lite para Android**.
+Clasificación de residuos (Fase 1: Amarillo, Verde, Azul y Gris) mediante **Deep Learning** usando **EfficientNetB0**, **TensorFlow** y conversión del modelo en **TensorFlow Lite para Android**.
 
 ---
 
