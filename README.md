@@ -12,7 +12,8 @@ FASE 1:
 - 🔵 **Azul** — Papel y cartón
 - ⚪ **Gris** — Contenedor genérico (default)
 
-En esta fase solo reconocerá estas tres primeras categorías y si no reconoce el contenedor lo enviará al gris por default. En próxima fase se agregarán el contenedor marrón (orgánico), productos que van al punto verde (muebles, electrodomesticos), pilas y aceites (contenedores especiales) y material de construccion. 
+En esta fase solo reconocerá estas tres primeras categorías y si no reconoce el contenedor lo enviará al gris por default.
+En próximas fases se agregarán el contenedor marrón (orgánico), productos que van al punto verde (muebles, electrodomesticos), pilas y aceites (contenedores especiales) y material de construccion. 
 El objetivo final es integrar este modelo en una **aplicación Android** que ayude a los usuarios a reciclar correctamente utilizando solo la cámara del móvil.
 
 ---
