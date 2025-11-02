@@ -1,15 +1,18 @@
 # ♻️ proyecto_reciclAI  
-Clasificación de residuos (Amarillo, Verde y Azul) mediante **Deep Learning** usando **EfficientNetB0**, **TensorFlow** y despliegue del modelo en **TensorFlow Lite para Android**.
+Clasificación de residuos (Amarillo, Verde y Azul) mediante **Deep Learning** usando **EfficientNetB0**, **TensorFlow** y conversión del modelo en **TensorFlow Lite para Android**.
 
 ---
 
 ## 📌 Descripción  
-Este proyecto entrena un modelo de visión por computadora capaz de **clasificar residuos** en tres categorías:
+Este proyecto entrena un modelo utilizando el diseño CNN + transfer learning para lograr una **clasificación de residuos** en categorías:
 
+FASE 1: 
 - 🟡 **Amarillo** — Plásticos y envases  
 - 🟢 **Verde** — Vidrio  
-- 🔵 **Azul** — Papel y cartón  
+- 🔵 **Azul** — Papel y cartón
+- ⚪ **Gris** — Contenedor genérico (default)
 
+En esta fase solo reconocerá estas tres primeras categorías y si no reconoce el contenedor lo enviará al gris por default. En próxima fase se agregarán el contenedor marrón (orgánico), productos que van al punto verde (muebles, electrodomesticos), pilas y aceites (contenedores especiales) y material de construccion. 
 El objetivo final es integrar este modelo en una **aplicación Android** que ayude a los usuarios a reciclar correctamente utilizando solo la cámara del móvil.
 
 ---
@@ -75,31 +78,17 @@ accuracy_curve.png
 ---
 
 ## 📱 Exportación a TensorFlow Lite
-Se generan dos modelos TFLite listos para Android:
+Modelo generado TFLite listo para Android:
 
-- `proyecto-reciclAI_quant.tflite` → Dynamic Range Quantization  
-- `proyecto-reciclAI_fp16.tflite` → Float16 (ideal para GPU delegate)
+- `proyecto-reciclAI_quant.tflite` 
 
-**E/S del modelo**
+**E/S del modelo (formato entrada y salida)**
 
 input : [1, 224, 224, 3] float32 (RGB)
 output: 3 probabilidades (softmax)
 clases: ["Amarillo", "Verde", "Azul"]
 
 ---
-
-## 📱 Uso en Android (resumen)
-```kotlin
-// Ejemplo con TensorFlow Lite + TensorImage (Support Library)
-val tflite = Interpreter(loadModelFile("proyecto-reciclAI_fp16.tflite"))
-val image = TensorImage(DataType.FLOAT32).apply { load(bitmap) }
-val processor = ImageProcessor.Builder()
-    .add(ResizeOp(224, 224, ResizeOp.ResizeMethod.BILINEAR))
-    .build()
-val input = processor.process(image).buffer
-val output = Array(1) { FloatArray(3) }
-tflite.run(input, output)
-val clase = arrayOf("Amarillo","Verde","Azul")[output[0].indices.maxBy { output[0][it] }!!]
 
 proyecto_reciclAI/
  ├── proyecto-reciclAI.keras
@@ -115,7 +104,7 @@ proyecto_reciclAI/
 pip install tensorflow matplotlib huggingface_hub
 
 
-Luego ejecutar el notebook que descarga el dataset desde Hugging Face, entrena (TL + FT) y guarda los artefactos.
+Luego ejecutar el notebook que descarga el dataset desde Hugging Face, entrena (TL + FT) y guarda los modelos.
 
 🧾 Licencia
 
@@ -123,4 +112,4 @@ Este proyecto está bajo MIT License.
 
 ✨ Autora
 
-Rituzka — IA aplicada a reciclaje y apps móviles.
+Rita Casiello Pose — IA aplicada a reciclaje y apps móviles.
