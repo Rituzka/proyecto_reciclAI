@@ -93,7 +93,7 @@ output: 3 probabilidades (softmax)
 clases: ["Amarillo", "Verde", "Azul"]
 
 ---
-
+```
 proyecto_reciclAI/
  ├── proyecto-reciclAI.keras
  ├── proyecto-reciclAI_quant.tflite
@@ -103,6 +103,7 @@ proyecto_reciclAI/
  ├── README.md
  ├── LICENSE
  └── .gitignore
+```
 
 🧪 Reproducir el entrenamiento (Colab)
 pip install tensorflow matplotlib huggingface_hub
