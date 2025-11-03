@@ -50,7 +50,7 @@ Dataset_Reciclaje/
 ## 🧠 Modelo: EfficientNetB0
 Se utiliza **EfficientNetB0** cargado con pesos de ImageNet en dos fases:
 
-1. ✅ **Transfer Learning** (backbone congelado)  
+1. ✅ **Transfer Learning** (estructura principal fija, no se entrenan las primeras capas)  
 2. ✅ **Fine-Tuning** (últimas capas descongeladas)
 
 El modelo final incluye:
