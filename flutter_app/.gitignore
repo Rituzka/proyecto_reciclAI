@@ -1,0 +1,25 @@
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+build/
+pubspec.lock
+
+# Android related
+**/android/**/captures/
+**/android/**/local.properties
+
+# iOS/Xcode related
+**/ios/**/Pods/
+**/ios/**/Generated.xcconfig
+**/ios/**/Runner.xcodeproj/project.xcworkspace/
+**/ios/**/Runner.xcworkspace/
+
+# Web related
+web/.dart_tool/
+web/.firebase/
+
+# Misc
+**/flutter_app.iml
+.idea/
+*.iml
+*.log
